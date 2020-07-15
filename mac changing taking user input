@@ -1,0 +1,11 @@
+import subprocess
+import optparse
+interface=input("interface >")
+newmac=input("new mac no. >")
+def macchagingfxn(interface,newmac):
+    subprocess.call(["sudo", "ifconfig", interface, "down"])
+    subprocess.call(["sudo", "ifconfig", interface, "hw", "ether", newmac])
+    subprocess.call(["sudo", "ifconfig", interface, "up"])
+
+macchangingfxn(interface,newmac)
+
